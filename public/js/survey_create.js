@@ -1,12 +1,3 @@
-function resetForm(){
-  $('#text').val('');
-  $('#type').val('');
-  $('#new-question').hide();
-  $('#add-question').show();
-  $('#create').hide();
-  $('#add-option').hide();
-  $('#options p').remove();
-}
 
 $(document).ready(function(){
   $('#new-question').hide();
@@ -112,3 +103,14 @@ $(document).ready(function(){
     });
   });
 });
+
+// this function is idempotent, which is great!
+function resetForm(){
+  $('#text').val('');
+  $('#type').val('');
+  $('#new-question').hide();
+  $('#add-question').show();
+  $('#create').hide();
+  $('#add-option').hide();
+  $('#options p').remove();
+}
