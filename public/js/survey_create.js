@@ -108,15 +108,15 @@ $(document).ready(function(){
       var myLine = new Chart(document.getElementById("myChart"+ id).getContext("2d")).Bar(data);
     });
   });
-});
 
-// this function is idempotent, which is great!
-function resetForm(){
-  $('#text').val('');
-  $('#type').val('');
-  $newQuestion.hide();
-  $('#add-question').show();
-  $('#create').hide();
-  $('#add-option').hide();
-  $('#options p').remove();
-}
+  // this function is idempotent, which is great!
+  function resetForm(){
+    $('#text').val('');
+    $('#type').val('');
+    $newQuestion.hide();
+    $('#add-question').show();
+    $('#create').hide();
+    $('#add-option').hide();
+    $('#options p').remove();
+  }
+});
