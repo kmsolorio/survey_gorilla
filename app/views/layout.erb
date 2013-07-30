@@ -18,13 +18,13 @@
 </head>
 <body>
 <div class="persist-area">
-  <header class="persist-header"> 
+  <header class="persist-header">
       <span class="brand">
         <a href='/' alt="home">SurveyGorilla</a>
       </span>
        <div id="nav">
       <% if current_user %>
-      <a href="/profile/<%= current_user.id %>" alt="Delete your profile">Dashboard</a>  || 
+      <a href="/profile/<%= current_user.id %>" alt="Delete your profile">Dashboard</a>  ||
       <a href="/logout" alt="Log out of your account">Logout</a>
     <% else %>
       <span>
@@ -40,7 +40,7 @@
   <footer>
     <p> A KRKJ (Kevin Rachel Katherine Justin) Production. Made possible by <a href="http://devbootcamp.com" alt="DevBootcamp">Dev Bootcamp</p>
     <nav>
-      <a href="#" alt="Contact">Contact</a> || 
+      <a href="#" alt="Contact">Contact</a> ||
       <a href="#" alt="About">About Us</a>
     </nav>
   </footer>
