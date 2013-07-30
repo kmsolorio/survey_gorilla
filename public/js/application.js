@@ -20,20 +20,24 @@ $(document).ready(function(){
     event.stopPropagation();
     $('#add-question').hide();
     $('#new-question').show();
+
     $('#type').on('change', function(event){
       event.stopPropagation();
       $('#create').show();
       var type = $(this).val();
+
       if (type == 'TextArea' || type == 'NumSlider' || type == 'PercentSlider' || type == 'ShortResponse') {
         $('#add-option').hide();
         $('#options p').remove();
         $('#options').hide();
         $('#responses').hide();
       }
+
       if (type == 'McRadio' || type == 'McCheck') {
         $('#add-option').show();
         $('#options').show();
         $('#responses').hide();
+
         $('#add-option').off();
         $('#add-option').on('click', function(event){
           event.stopPropagation();
@@ -45,44 +49,51 @@ $(document).ready(function(){
         });
       }
     });
-    
+
     $('#create').off();
     $('#create').on('click', function(event){
       event.stopPropagation();
       var url = $('#define').attr('action');
       var responses = [];
+
       $('#options p input[name="response"]').each(function(){
         responses.push($(this).val());
       });
+
       var data = {question: {}};
       data['question']['type'] = $('#type').val();
       data['question']['text'] = $('#text').val();
       data['responses'] = responses;
       console.log(url);
+
       $.post(url, data, function(response){
         $('#questions').append(response);
       });
+
       resetForm();
     });
   });
-  
+
   $('#delete').off();
   $('#delete').on('submit', function(event){
     event.preventDefault();
     event.stopPropagation();
     var url = $(this).attr('action');
+
     $(this).closest('.question').parent().remove();
     $.post(url);
   });
-  
+
   $('.chart').off();
   $('.chart').on('submit', function(event){
     event.preventDefault();
     event.stopPropagation();
     $(this).hide();
+
     var that = $(this);
     var id = $(this).attr('id');
     var url = $(this).attr('action');
+
     $.get(url, function(response){
       that.before('<canvas id="myChart'+ id +'" width="800" height="400"></canvas>')
       var data = {
