@@ -1,22 +1,18 @@
 
 $(document).ready(function(){
-  var $newQuestion = $('#new-question'),
+  var $createQuestionForm = $('#new-question'),
       $create      = $('#create'),
       $addOption   = $('#add-option'),
       $options     = $('#options'),
       $responses   = $('#responses');
 
-  $newQuestion.hide();
-  $create.hide();
-  $addOption.hide();
-  $options.hide();
-  $responses.hide();
+  setupForm();
 
   $('#add').on('click', function(event){
     event.preventDefault();
     event.stopPropagation();
     $('#add-question').hide();
-    $newQuestion.show();
+    $createQuestionForm.show();
 
     $('#type').on('change', function(event){
       event.stopPropagation();
@@ -119,4 +115,13 @@ $(document).ready(function(){
     $('#add-option').hide();
     $('#options p').remove();
   }
+
+  function setupForm() {
+    $createQuestionForm.hide();
+    $create.hide();
+    $addOption.hide();
+    $options.hide();
+    $responses.hide();
+  }
 });
+
